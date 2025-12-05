@@ -3,6 +3,8 @@
 In this project, we have derived the equations of motion for a nonlinear system. The system in question is a cart with two hanging pendulums.
 We have linearized the system around an equilibrium point. This linearized system will assist in designing the LQR/LQG controllers.
 
+All parts should be run sequentially to avoid errors
+
 ### Part C
 
 In this section we explore the conditions in which the linearized system is controllable. This can be solved both symbolically or numerically.
