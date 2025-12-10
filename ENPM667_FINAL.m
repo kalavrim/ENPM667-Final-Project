@@ -108,8 +108,8 @@ initial(LQR_TEST, X_0)
 clc;
 
 %setting up LQR
-Q = diag([500, 10000, 1000, 10000, 10000, 10000]);
-R = .01;
+Q = diag([50, 50000, 30000, 10, 50, 50]);
+R = .0001;
 
 [K_lin, ~, E] = lqr(A, B, Q, R);
 
@@ -173,15 +173,15 @@ end
 
 
 % 
-Q = diag([500, 10000, 1000, 10000, 10000, 10000]);
-R = 0.01;
+Q = diag([50, 50000, 30000, 10, 50, 50]);
+R = .0001;
 [K_nonlin, ~, eigen] = lqr(A, B, Q, R);
 
 % Initial condition
 X_0 = [0; 0.3; 0.2; 0; 0; 0];
 
 % Time vector
-tspan = 0:0.1:150;
+tspan = 0:0.1:50;
 
 % Solve nonlinear system
 [t, state_history] = ode45(@(t,state) NL_system(state,K_nonlin), tspan, X_0);
@@ -273,7 +273,7 @@ close all;
 D = 0;
 
 % desired poles
-obs_poles = [-5, -4, -2, -8, -9, -3];
+obs_poles = [-5, -6, -7, -8, -9, -10];
 
 %lunenberger observers
 L1 = place(A', C1', obs_poles)';
@@ -438,8 +438,8 @@ clc;
 
 C=C1;
 %LQR
-Q = diag([500, 10000, 1000, 10000, 10000, 10000]);
-R = 0.01;
+Q = diag([50, 50000, 30000, 10, 50, 50]);
+R = .0001;
 [K, P, eigen] = lqr(A, B, Q, R);
 
 %Kalman
